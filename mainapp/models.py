@@ -16,3 +16,9 @@ class Regions(models.Model):
 
     def __str__(self):
         return self.name
+
+class Species(models.Model):
+    pass
+
+class Genus(models.Model):
+    pass
