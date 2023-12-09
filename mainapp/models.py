@@ -22,3 +22,6 @@ class Species(models.Model):
 
 class Genus(models.Model):
     pass
+
+class Feed(models.Model):
+    pass
