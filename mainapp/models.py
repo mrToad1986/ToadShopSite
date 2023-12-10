@@ -5,7 +5,7 @@ class ListOfCountries (models.Model):
     description = models.TextField(verbose_name='описание', blank=True)
     is_active = models.BooleanField(verbose_name='активно', default=True)
 
-    def __true__(self):
+    def __str__(self):
         return self.name
 
 class Regions(models.Model):
