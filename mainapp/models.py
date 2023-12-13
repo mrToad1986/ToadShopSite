@@ -25,3 +25,6 @@ class Genus(models.Model):
 
 class Feed(models.Model):
     pass
+
+class User(models.Model):
+    pass
