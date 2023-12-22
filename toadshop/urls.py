@@ -23,7 +23,7 @@ import mainapp.views as mainapp
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', mainapp.main, name='main'),
+    #path('', mainapp.main, name='main'),
 ]
 
 if settings.DEBUG:
