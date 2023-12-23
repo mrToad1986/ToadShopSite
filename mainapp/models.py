@@ -32,6 +32,10 @@ class Species(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'животное'
+        verbose_name_plural = 'животные'
+
 
 class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
