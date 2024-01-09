@@ -27,7 +27,8 @@ class Species(models.Model):
     full_desc = models.TextField(blank=True, verbose_name='полное описание')
     image = models.ImageField(upload_to='images', blank=True)
     price = models.DecimalField(max_digits=8, decimal_places=2, default=0, verbose_name='cтоимость')
-    quantity = models.PositiveIntegerField(default=0, verbose_name='в наличии')
+    quantity = models.PositiveIntegerField(default=0, verbose_name='количество')
+    is_active = models.BooleanField(default=True, verbose_name='в наличии')
 
     def __str__(self):
         return self.name
@@ -35,6 +36,10 @@ class Species(models.Model):
     class Meta:
         verbose_name = 'животное'
         verbose_name_plural = 'животные'
+
+    # @staticmethod
+    # def get_animal():
+    #     return Species.objects.filter(is_active=True).order_by('category', 'name', 'short_desc')
 
 
 class Product(models.Model):
@@ -44,4 +49,8 @@ class Product(models.Model):
     full_desc = models.TextField(blank=True, verbose_name='полное описание')
     image = models.ImageField(upload_to='images', blank=True)
     price = models.DecimalField(max_digits=8, decimal_places=2, default=0, verbose_name='cтоимость')
-    quantity = models.PositiveIntegerField(default=0, verbose_name='в наличии')
+    quantity = models.PositiveIntegerField(default=0, verbose_name='количество')
+    is_active = models.BooleanField(default=True, verbose_name='в наличии')
+
+    def __str__(self):
+        return self.name

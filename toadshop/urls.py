@@ -23,7 +23,7 @@ import toadshop.mainapp.views as mainapp
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', mainapp.main, name='main'),
+    path('', mainapp, name='main'),
     path('species/', include('mainapp.urls', namespace='acc'))
 ]
 
