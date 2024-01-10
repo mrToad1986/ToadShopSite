@@ -19,12 +19,12 @@ from django.urls import path
 from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
-import toadshop.mainapp.views as mainapp
+from mainapp import views as mainapp
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', mainapp, name='main'),
-    path('species/', include('mainapp.urls', namespace='acc'))
+    path('', mainapp.main, name='main'), # переход на главную страницу запускает контроллер views.main()
+    path('species/', include('mainapp.urls', namespace='acc')), # обработка начальной части адресов
 ]
 
 if settings.DEBUG:

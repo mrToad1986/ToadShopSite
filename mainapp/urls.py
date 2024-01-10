@@ -1,9 +1,12 @@
 from django.urls import path
-import toadshop.mainapp.views as mainapp
+from mainapp import views as mainapp
 
+# имя приложения
 app_name = 'mainapp'
 
 urlpatterns = [
-    path('', mainapp.accomodations, name='index'),
-    path('accommodation_details/<int:pk>/', mainapp.accommodation, name='accommodation'),
+    # вывод всех предложений по животным
+    path('', mainapp.species, name='index'),
+    # вывод подробного одного предложения
+    path('species_detailed/<int:pk>/', mainapp.species_detailed, name='species_detailed')
 ]
