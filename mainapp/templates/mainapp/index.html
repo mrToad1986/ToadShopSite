@@ -1,10 +1,13 @@
+{% extends 'mainapp/base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+{% block content %}
 <body>
-<h1>Это статическая заглушка главной страницы</h1>
+<h1>Это статическая заглушка главной страницы {{ sitename }}</h1>
 </body>
+{% endblock %}
 </html>
