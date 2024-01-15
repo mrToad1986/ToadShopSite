@@ -1,9 +1,14 @@
+from datetime import datetime
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Species, Product
 
 
 def main(request):
-    return render(request, 'mainapp/index.html')
+    content = {
+        'title': 'AmphiDelights',
+        'date': datetime.now(),
+    }
+    return render(request, 'mainapp/index.html', content)
 
 
 # установить django-stubs или использовать models.Manager()

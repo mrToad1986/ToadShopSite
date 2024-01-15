@@ -24,7 +24,8 @@ from mainapp import views as mainapp
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', mainapp.main, name='main'), # переход на главную страницу запускает контроллер views.main()
-    path('species/', include('mainapp.urls', namespace='acc')), # обработка начальной части адресов
+    path('species/', include('mainapp.urls', namespace='species')), # обработка начальной части адресов
+    path('products/', include('mainapp.urls', namespace='products'))
 ]
 
 if settings.DEBUG:
