@@ -1,13 +1,25 @@
 {% extends 'mainapp/base.html' %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+{% load static %}
+
 {% block content %}
-<body>
-<h1>Это статическая заглушка главной страницы {% now "Y" %}</h1>
-</body>
+    <div class="container text-center my-5">
+      <!-- определяем отступы m-margin, y-по вертикали(верх и низ) 5-величина -->
+      <div class="row">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <!-- ширина 6/12 для большого экрана и 8/12 для планшета-->
+          <img class="rounded-img" src="img/anvil.gif" alt="логотип" />
+          <!-- для картинки применяем свой стиль-->
+          <h1 class="fw-light">Это магазин НазваниеМагазина</h1>
+          <p class="lead text-muted">Здесь вы можете окунуться в увлекательный мир террариумистики</p>
+          <!-- задаем разные стили для текстов заголовка и параграфа-->
+          <a href="{% url 'species:index' %}" target="_blank" class="btn btn-primary">
+            Животные
+          </a>
+          <a href="{% url 'products:index' %}" target="_blank" class="btn btn-secondary">
+            Товары
+          </a>
+          <!-- стиль и ссылка для кнопки-->
+        </div>
+      </div>
+    </div>
 {% endblock %}
-</html>
