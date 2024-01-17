@@ -34,6 +34,7 @@
 <div class="container">
 
     {% block menu %}
+        {% include 'mainapp/includes/inc_menu.html' %}
     {% endblock %}
 
     {% block list %}
@@ -47,6 +48,7 @@
 </body>
 <footer>
     {% block footer %}
+        {% include 'mainapp/includes/inc_footer.html' %}
     {% endblock %}
 </footer>
 </html>
