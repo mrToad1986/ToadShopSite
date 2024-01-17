@@ -5,10 +5,12 @@ from mainapp import views as mainapp
 app_name = 'mainapp'
 
 urlpatterns = [
-    # вывод вообще всех предложений
-    path('', mainapp.species, name='index'),
-
-    # вывод подробного одного предложения
-    path('species_detailed/<int:pk>/', mainapp.species_detailed, name='species_detailed')
-    # идентификатор записи, который будет передаваться в HTML-шаблоне
+    # вывод предложений по (двум) основным катеригоиям
+    path('species/', mainapp.species, name='species'),
+    path('products/', mainapp.products, name='products'),
+    # вывод подробного по животному
+    path('species_detailed/<int:pk>/', mainapp.species_detailed, name='species_detailed'),
+    # int:pk идентификатор записи, который будет передаваться в HTML-шаблоне
+    path('products_detailed/<int:pk>/', mainapp.species_detailed, name='species_detailed'),
+    # int:pk идентификатор записи, который будет передаваться в HTML-шаблоне
 ]
