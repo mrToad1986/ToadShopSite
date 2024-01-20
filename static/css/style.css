@@ -6,9 +6,10 @@
         margin-bottom: 1em;
         }
 .card {
-        border-radius: 1em;
+        border-radius: 10%;
         text-align: center;
         padding: 1em;
+
       }
 .card:hover {
         background-color: rgba(0, 0, 0, 0.2);
