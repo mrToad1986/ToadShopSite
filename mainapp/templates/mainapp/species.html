@@ -1,13 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Животные</h1>
-<a href="species_detailed.html" target="_self" class="btn btn-primary">
-            Животное 1
-          </a>
-</body>
-</html>
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+      <!--адаптивное количество карточек в ряду-->
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <div class="col">
+            {% for item in list_of_species %}
+          <div class="card" style="width: 14rem"> <!-- ; display:flex -->
+            <img src="img/cypr1su.gif" class="card-img-top" alt="my img" />
+            <div class="card-body">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <p class="card-text">{{ item.short_desc }}</p>
+              <p class="card-text">{{ item.price }} &#8381</p>
+              <a href="{% url 'category:species_detailed' item.pk %}" class="btn btn-primary">подробнее</a>
+            </div>
+          </div>
+            {% endfor %}
+        </div>
+      </div>
+</div>
+{% endblock %}
