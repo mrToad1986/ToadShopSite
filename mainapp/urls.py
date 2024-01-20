@@ -11,6 +11,6 @@ urlpatterns = [
     # вывод подробного по животному
     path('species_detailed/<int:pk>/', mainapp.species_detailed, name='species_detailed'),
     # int:pk идентификатор записи, который будет передаваться в HTML-шаблоне
-    path('products_detailed/<int:pk>/', mainapp.species_detailed, name='species_detailed'),
+    path('products_detailed/<int:pk>/', mainapp.species_detailed, name='products_detailed'),
     # int:pk идентификатор записи, который будет передаваться в HTML-шаблоне
 ]

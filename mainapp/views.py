@@ -23,15 +23,26 @@ def species(request):
 
 
 def products(request):
-    pass
+    title = 'товары'
+    list_of_products = Product.objects.all()
+    content = {
+        'title': title,
+        'list_of_products': list_of_products,
+    }
+    return render(request, 'mainapp/products.html')
 
 def species_detailed(request, pk):
-    title = 'животные'
+    title = 'животное'
     content = {
         'title': title,
         'details': get_object_or_404(Species, pk=pk),
     }
     return render(request, 'mainapp/species_detailed.html', content)
 
-def products_detailed(requet):
-    pass
+def products_detailed(request, pk):
+    title = 'товар'
+    content = {
+        'title': title,
+        'details': get_object_or_404(Product, pk=pk),
+    }
+    return render(request, 'mainapp/products_detailed.html', content)
