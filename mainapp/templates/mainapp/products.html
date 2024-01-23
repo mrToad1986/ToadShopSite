@@ -1,7 +1,23 @@
 {% extends 'mainapp/base.html' %}
 {% load static %}
-
+<!-- переписать на products -->
 {% block content %}
-<!-- размещение карточек товаров в карусели -->
-<h1>Товары</h1>
+<<div class="container my-5">>
+    <div class="row centered">
+            {% for item in list_of_species %}
+                <div class="card  col-lg-4" style="width: 16rem; display: flex">
+                    <img src="/media/{{ item.image }}"
+                         class="card-img-top filters__img" alt="images">
+                    <div class="card-body fa fa-align-justify">
+                        <h5 class="card-title">{{ item.name }}</h5>
+                        <p class="card-text">{{ item.short_desc }}</p>
+                        <p class="card-text">{{ item.price }} &#8381</p>
+                        <a href="{% url 'category:species_detailed' item.pk %}" class="btn btn-primary">подробнее</a>
+                        <!-- <a href="{% url 'acc:accommodation' offer.pk %}" -->
+                           class="btn btn-danger">Подробнее</a>
+                    </div>
+                </div>
+            {% endfor %}
+    </div>
+</div>
 {% endblock %}
