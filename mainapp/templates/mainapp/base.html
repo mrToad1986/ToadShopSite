@@ -1,7 +1,12 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    .main-footer {
+    background-color: #5d5d5d;
+}
 
+</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,12 +35,15 @@
     {% endblock %}
 </head>
 
-<body>
-<div class="container">
 
+<body>
+<div class="main-menu">
     {% block menu %}
         {% include 'mainapp/includes/inc_menu.html' %}
     {% endblock %}
+</div>
+
+<div class="container">
 
     {% block list %}
     {% endblock %}
@@ -46,9 +54,14 @@
 </div>
 
 </body>
+<div class="main-footer">
 <footer>
+
     {% block footer %}
         {% include 'mainapp/includes/inc_footer.html' %}
     {% endblock %}
+
 </footer>
+</div>
+
 </html>
