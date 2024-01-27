@@ -29,7 +29,7 @@ def products(request):
         'title': title,
         'list_of_products': list_of_products,
     }
-    return render(request, 'mainapp/products.html')
+    return render(request, 'mainapp/products.html', content)
 
 def species_detailed(request, pk):
     title = 'животное'
