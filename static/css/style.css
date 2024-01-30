@@ -19,7 +19,9 @@
         width: 75%;
         margin: auto;
       }
-
+.main-footer {
+        background-color: #5d5d5d;
+}
       /*
 .wrapper {
         position: relative;
