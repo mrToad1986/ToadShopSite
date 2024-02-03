@@ -25,7 +25,7 @@ class Species(models.Model):
     name = models.CharField(max_length=64, unique=True, verbose_name='название')
     short_desc = models.CharField(max_length=96, blank=True, verbose_name='краткое описание')
     full_desc = models.TextField(blank=True, verbose_name='полное описание')
-    image = models.ImageField(upload_to='images', blank=True)
+    image = models.ImageField(upload_to='images', blank=True) #исправить путь
     price = models.DecimalField(max_digits=8, decimal_places=2, default=0, verbose_name='cтоимость')
     quantity = models.PositiveIntegerField(default=0, verbose_name='количество')
     is_active = models.BooleanField(default=True, verbose_name='в наличии')
