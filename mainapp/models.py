@@ -29,6 +29,7 @@ class Species(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2, default=0, verbose_name='cтоимость')
     quantity = models.PositiveIntegerField(default=0, verbose_name='количество')
     is_active = models.BooleanField(default=True, verbose_name='в наличии')
+    hierarchy = models.CharField(verbose_name='класс', max_length=12, choices=Hierarchy_class, blank=True)
 
     def __str__(self):
         return self.name
@@ -54,3 +55,7 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'товар'
+        verbose_name_plural = 'товары'
