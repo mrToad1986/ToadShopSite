@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
 from django.forms import forms
 from .models import ShopUser
 
@@ -57,5 +57,17 @@ class ShopUserEditForm(UserChangeForm):
 
     def check_age(self):
         data = self.cleaned_data['age']
-        if data < 18:
+        if data < 12:
             raise forms.ValidationError('Сайт предназначен для пользователей старше 12 лет')
+
+class ShopUserLoginForm(AuthenticationForm):
+    class Meta:
+        models = ShopUser
+        fields = (
+            'nickname',
+            'password'
+        )
+        def __init__(self, *args, **kwargs):
+            super(ShopUserLoginForm, self).__init__(*args, **kwargs)
+            for field_name, field in self.fields.items():
+                field.widget.attrs['class'] = 'form-control'
