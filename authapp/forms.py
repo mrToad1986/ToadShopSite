@@ -1,4 +1,5 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.forms import forms
 from .models import ShopUser
 
 
@@ -26,7 +27,7 @@ def __init__(self, *args, **kwargs):
 
 # проверка возраста пользователя
 def check_age(self):
-    data = delf.cleaned_data['age']
+    data = self.cleaned_data['age']
     if data < 12:
         raise forms.ValidationError('Сайт предназначен для пользователей старше 12 лет')
     return data
