@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
 from django.forms import forms
-from .models import ShopUser
+from .models import ShopUser, ShopUserProfile
 
 
 class ShopUserRegisterForm(UserCreationForm):
@@ -19,18 +19,18 @@ class ShopUserRegisterForm(UserCreationForm):
         )
 
 # стилизация элементов формы
-def __init__(self, *args, **kwargs):
-    super().__init__(*args, **kwargs)
-    for field_name, field in self.fields.items():
-        field.widget.attrs['class'] = 'form-control'
-        field.help_text = ''
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+            field.help_text = ''
 
 # проверка возраста пользователя
-def check_age(self):
-    data = self.cleaned_data['age']
-    if data < 12:
-        raise forms.ValidationError('Сайт предназначен для пользователей старше 12 лет')
-    return data
+    def check_age(self):
+        data = self.cleaned_data['age']
+        if data < 12:
+            raise forms.ValidationError('Сайт предназначен для пользователей старше 12 лет')
+        return data
 
 class ShopUserEditForm(UserChangeForm):
     class Meta:
@@ -64,10 +64,24 @@ class ShopUserLoginForm(AuthenticationForm):
     class Meta:
         models = ShopUser
         fields = (
-            'nickname',
+            'nickname', # from ShopUser переоп. Username
             'password'
         )
-        def __init__(self, *args, **kwargs):
-            super(ShopUserLoginForm, self).__init__(*args, **kwargs)
-            for field_name, field in self.fields.items():
-                field.widget.attrs['class'] = 'form-control'
+    def __init__(self, *args, **kwargs):
+        super(ShopUserLoginForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+
+class ShopUserProfileEditForm(forms.ModelForm):
+    class Meta:
+        model = ShopUserProfile
+        fields = (
+            'tagline',
+            'aboutMe',
+            'city',
+            'country'
+        )
+    def __init__(selfself, *args, **kwargs):
+        super(ShopUserProfileEditForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
