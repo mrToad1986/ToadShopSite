@@ -81,7 +81,7 @@ class ShopUserProfileEditForm(forms.ModelForm):
             'city',
             'country'
         )
-    def __init__(selfself, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super(ShopUserProfileEditForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
