@@ -26,7 +26,7 @@ urlpatterns = [
     #path('admin/', include('adminapp.urls', namespace='admin')) #добавить свою админку
     path('', mainapp.main, name='main'), # переход на главную страницу запускает контроллер views.main() в других проектах он же views.index
     path('category/', include('mainapp.urls', namespace='category')), #после category/ идет путь из mainapp.urls - то есть species и products
-    #path('auth/', include('authapp.urls', namespace='auth')),
+    path('auth/', include('authapp.urls', namespace='auth')),
     #path('basket/', include('basketapp.urls', namespace='basket')),
     #path('order/', include('ordersapp.urls', namespace='order')),
 ]
