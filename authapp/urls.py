@@ -1,5 +1,5 @@
 from django.urls import path
-import authapp.views as authapp
+from toadshop.authapp import views as authapp
 
 app_name = 'authapp'
 
