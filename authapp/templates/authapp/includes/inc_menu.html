@@ -1,0 +1,33 @@
+<li class="nav-item dropdown">
+    {% if user.is_authenticated %}
+    <a class="nav-link dropdown-toogle"
+       href="" data-toogle="dropdown" aria-haspopup="true"
+       aria-expanded="false">
+        {{ user|default:'пользователь' }}
+    </a>
+    <div class="dropdown-menu"
+         aria-labelledby="navbarDropdown">
+        <a class="dropdown-item"
+           href="{% url 'auth:edit' %}">
+            Профиль
+        </a>
+        {% if user.is_superuser %}
+        <div class="dropdown-divider">
+        </div>
+        {% endif %}
+    </div>
+    <li class="nav-item">
+    <a class="nav-link"
+       href="{% url 'auth:logout' %}">
+       Выйти
+    </a>
+    </li>
+    {% else %}
+    <li class="nav-item">
+    <a class="nav-link"
+       href="{% url 'auth:login' %}">
+       Войти
+    </a>
+    </li>
+    {% endif %}
+</li>
