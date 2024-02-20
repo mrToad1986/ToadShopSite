@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse #позволяет по имени view получить его url.
 from django.contrib import auth
-from .forms import ShopUserRegisterForm, ShopUserLoginForm
+from .forms import ShopUserRegisterForm, ShopUserLoginForm, ShopUserProfileEditForm, ShopUserEditForm
 
 def register (request):
     title = 'регистрация'

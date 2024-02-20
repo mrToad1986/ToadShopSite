@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
-from django.forms import forms
+from django.forms import forms, ModelForm
 from .models import ShopUser, ShopUserProfile
 
 
@@ -13,7 +13,7 @@ class ShopUserRegisterForm(UserCreationForm):
             'email', #from AbstractUser
             'password1',
             'password2',
-            'nickname' #from ShopUser переоп. Username
+            'nickname', #from ShopUser переоп. Username
             'age', #from ShopUser
             'avatar' #from ShopUser
         )
@@ -40,9 +40,8 @@ class ShopUserEditForm(UserChangeForm):
             'first_name',  # from AbstractUser
             'last_name',  # from AbstractUser
             'email',  # from AbstractUser
-            'password1',
-            'password2',
-            'nickname'  # from ShopUser переоп. Username
+            'password',
+            'nickname',  # from ShopUser переоп. Username
             'age',  # from ShopUser
             'avatar'  # from ShopUser
         )
@@ -72,7 +71,7 @@ class ShopUserLoginForm(AuthenticationForm):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control'
 
-class ShopUserProfileEditForm(forms.ModelForm):
+class ShopUserProfileEditForm(ModelForm):
     class Meta:
         model = ShopUserProfile
         fields = (
