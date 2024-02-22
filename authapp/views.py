@@ -46,4 +46,8 @@ def logout(request):
     return HttpResponseRedirect(reverse('main'))
 
 
+def edit():
+    pass
+
+
 
