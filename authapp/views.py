@@ -24,9 +24,9 @@ def login(request):
     login_form = ShopUserLoginForm(data=request.POST or None)
     next = request.GET['next'] if 'next' in request.GET.keys() else '' #перенаправление на форму аутентификации
     if request.method == 'POST' and login_form.is_valid():
-        nickname = request.POST['username']
+        username = request.POST['username'] #???????
         password = request.POST['password']
-        user = auth.authenticate(nickname=nickname, password=password)
+        user = auth.authenticate(username=username, password=password)
         if user and user.is_active:
             auth.login(request, user)
             if 'next' in request.POST.keys():

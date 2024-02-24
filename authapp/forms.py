@@ -7,7 +7,7 @@ class ShopUserRegisterForm(UserCreationForm):
     class Meta:
         model = ShopUser
         fields = (
-            #'username', #from AbstractUser
+            'username', #from AbstractUser
             'first_name', #from AbstractUser
             'last_name', #from AbstractUser
             'email', #from AbstractUser
