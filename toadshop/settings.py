@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainapp',
     'authapp',
+    'social_django',
 
 ]
 
@@ -65,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends'
             ],
         },
     },
@@ -139,3 +141,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'authapp.ShopUser'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.vk.VKOAuth2', # аутегтификация через ВК
+    'django.contrib.auth.backends.ModelBackend', # аутентификация по логину и паролю
+)
