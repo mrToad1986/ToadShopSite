@@ -29,6 +29,7 @@ urlpatterns = [
     path('auth/', include('authapp.urls', namespace='auth')), #после auth/ идет путь из authapp.urls - то есть login, register, logout
     #path('basket/', include('basketapp.urls', namespace='basket')),
     #path('order/', include('ordersapp.urls', namespace='order')),
+    path('', include('social_django.urls', namespace='social')),
 ]
 
 if settings.DEBUG:

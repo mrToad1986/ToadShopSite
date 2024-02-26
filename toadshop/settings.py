@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
+import json
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -143,6 +144,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'authapp.ShopUser'
 
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.vk.VKOAuth2', # аутегтификация через ВК
+    'social_core.backends.vk.VKOAuth2', # аутентификация через ВК
     'django.contrib.auth.backends.ModelBackend', # аутентификация по логину и паролю
 )
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+with open('vk.json', 'r') as keyfile:
+    VK = json.load(keyfile)
+SOCIAL_AUTH_VK_OAUTH2_KEY = VK['SOCIAL_AUTH_VK_OAUTH2_KEY']
+SOCIAL_AUTH_VK_OAUTH2_SECRET = VK['SOCIAL_AUTH_VK_OAUTH2_SECRET']
