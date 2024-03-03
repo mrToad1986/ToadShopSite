@@ -18,7 +18,7 @@ def save_user_profile(backend, user, response, *args, **kwargs):
                           '/method/users.get',
                           None,
                           urlencode(OrderedDict(
-                              fields=','.join(('bdate', 'sex', 'about')),
+                              fields=','.join(('about', 'city', 'country', 'activities', 'bdate')),
                               access_token=response['access_token'],
                               v='5.113')),
                           None
@@ -29,20 +29,25 @@ def save_user_profile(backend, user, response, *args, **kwargs):
         return
 
     data = resp.json()['response'][0]
-    if data['sex']:
-        user.traveluserprofile.gender = ShopUserProfile.MALE if\
-            data['sex'] == 2 else ShopUserProfile.FEMALE
 
     if data['about']:
-        user.traveluserprofile.aboutMe = data['about']
+        user.shopuserprofile.aboutMe = data['about']
 
-    if data['bdate']:
-        bdate = datetime.strptime(data['bdate'], '%d.%m.%Y').date()
+    if data['city']:
+        user.shopuserprofile.city = data['city']
 
-        age = timezone.now().date().year - bdate.year
-        if age < 18:
-            user.delete()
-            raise AuthForbidden('social_core.backends.vk.VKOAuth2')
+    if data['country']:
+        user.shopuserprofile.country= data['country']
+
+    if data['activities']:
+        user.shopuserprofile.tagline= data['activities']
+
+    # if data['bdate']:
+    #     bdate = datetime.strptime(data['bdate'], '%d.%m.%Y').date()
+    #
+    #     age = timezone.now().date().year - bdate.year
+    #     if age < 18:
+    #         user.delete()
+    #         raise AuthForbidden('social_core.backends.vk.VKOAuth2')
 
     user.save()
-# проверить поля
