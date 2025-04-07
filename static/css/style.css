@@ -1,5 +1,6 @@
 .rounded-img {
-        width: 10%;
+        width: 50%;
+        height: 50%;
         border-radius: 30%;
         box-shadow: 0 0 10px silver;
         padding: 0.3em;
