@@ -135,7 +135,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SOCIAL_AUTH_URL_NAMESPACE = 'social'
-with open('toadshop/vk.json', 'r') as keyfile: #проверить путь
+with open('toadshop/vk_log_pass.json', 'r') as keyfile: #проверить путь
     VK = json.load(keyfile)
 SOCIAL_AUTH_VK_OAUTH2_KEY = VK['SOCIAL_AUTH_VK_OAUTH2_KEY']
 SOCIAL_AUTH_VK_OAUTH2_SECRET = VK['SOCIAL_AUTH_VK_OAUTH2_SECRET']
